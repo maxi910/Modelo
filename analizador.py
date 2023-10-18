@@ -1,5 +1,6 @@
 import pandas as pd
 from scipy.stats import skew, kurtosis
+from datos import APITiingo, APIStub
 
 class AnalizadorDeDatos:
     def __init__(self, df):
@@ -23,8 +24,12 @@ class AnalizadorDeDatos:
         return estadisticos
 
 # Uso del código
-# Suponiendo que tienes un DataFrame df con los datos de los tickers
-# df = obtener_datos(tickers, fecha_inicio, fecha_fin)  # Esta función debería devolver un DataFrame con los datos de los tickers
+# tiingo = APITiingo(tu_clave_api_tiingo)
+# df = tiingo.obtener_datos(tickers, fecha_inicio, fecha_fin)
+
+# Ejemplo usando APIStub
+stub = APIStub()
+df = stub.obtener_datos(tickers, fecha_inicio, fecha_fin) 
 
 analizador = AnalizadorDeDatos(df)
 estadisticos = analizador.calcular_estadisticos()
