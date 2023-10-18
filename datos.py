@@ -17,14 +17,24 @@ class APITiingo:
                 respuesta.raise_for_status()
                 datos = respuesta.json()
                 df = pd.DataFrame(datos)
-                df.to_pickle("./stub2.pk1")
                 df['fecha'] = pd.to_datetime(df['date'])
                 df.set_index('fecha', inplace=True)
-                return df['adjClose']
+                datos_tiingo[ticker] = df['adjClose']
             except requests.RequestException as e:
-                print(f"Error al obtener datos para {ticker}: {e}")                
+                print(f"Error al obtener datos para {ticker}: {e}")
+                
+        return pd.DataFrame(datos_tiingo)
 
 class APIStub: 
+    def __init__(self):
+        pass
+
+    def obtener_datos(self, tickers, fecha_inicio, fecha_fin):
+        df = pd.read_pickle("./stub2.pk1")
+        df['fecha'] = pd.to_datetime(df['date'])
+        df.set_index('fecha', inplace=True)
+        return df['adjClose']
+
     def __init__(self):
         pass
 
