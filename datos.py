@@ -34,12 +34,3 @@ class APIStub:
         df['fecha'] = pd.to_datetime(df['date'])
         df.set_index('fecha', inplace=True)
         return df['adjClose']
-
-    def __init__(self):
-        pass
-
-    def obtener_datos(self, tickers, fecha_inicio, fecha_fin):
-        df = pd.read_pickle("./stub2.pk1")
-        df['fecha'] = pd.to_datetime(df['date'])
-        df.set_index('fecha', inplace=True)
-        return df['adjClose']
