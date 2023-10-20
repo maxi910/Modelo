@@ -1,3 +1,8 @@
+import pandas as pd
+from scipy.stats import skew, kurtosis
+from datos import APITiingo, APIStub
+import numpy as np
+
 class AnalizadorDeDatos:
     def __init__(self, df):
         self.df = df
@@ -28,3 +33,12 @@ class AnalizadorDeDatos:
             ]
 
         return estadisticos
+
+#tickers_usuario = input("Ingrese los tickers separados por comas: ").split(",")  
+#tickers_usuario = [ticker.strip() for ticker in tickers_usuario]  
+
+#df = pd.DataFrame({ticker: np.random.normal(size=100) for ticker in tickers_usuario})  
+
+#analizador = AnalizadorDeDatos(df)
+#stast = analizador.calcular_estadisticos()
+#print(stast)
