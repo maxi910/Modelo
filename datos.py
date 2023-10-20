@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 from datetime import datetime
+import os
 
 class APITiingo:
     def __init__(self, tiingo_api_key):
@@ -26,7 +27,7 @@ class APITiingo:
         return pd.DataFrame(datos_tiingo)
 
 class APIStub: 
-    def __init__(self):
+    def __init__(self, tiingo_api_key):
         pass
 
     def obtener_datos(self, tickers, fecha_inicio, fecha_fin):
@@ -34,3 +35,7 @@ class APIStub:
         df['fecha'] = pd.to_datetime(df['date'])
         df.set_index('fecha', inplace=True)
         return df['adjClose']
+
+clave_api_tiingo = APITiingo(os.environ.get('TIINGO_API_KEY'))
+clave_api_tiingo = APIStub(os.environ.get('TIINGO_API_KEY'))
+

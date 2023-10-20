@@ -26,5 +26,5 @@ class AnalizadorDeDatos:
                 self._calcular_desviacion_estandar(precios),
                 self._calcular_promedio(precios)
             ]
-
+            
         return estadisticos

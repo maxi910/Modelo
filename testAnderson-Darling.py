@@ -64,12 +64,11 @@ class TestAndersonDarling:
 tickers_usuario = input("Ingrese los tickers separados por comas: ").split(",")  
 tickers_usuario = [ticker.strip() for ticker in tickers_usuario]  
 
-# Asegúrate de que los tickers ingresados por el usuario estén en el DataFrame
 df = pd.DataFrame({ticker: np.random.normal(size=100) for ticker in tickers_usuario})  
 
 analizador = AnalizadorDeDatos(df)
 test = TestAndersonDarling(analizador, tickers_usuario)  
-distribuciones = ['norm', 'expon', 'logistic']  
+distribuciones = ['norm', 'expon', 'logistic', 'gumbel_l', 'weibull_min', 'gumbel_r']  
 resultados = test.realizar_test(distribuciones)
 test.imprimir_resultados(resultados)
 
