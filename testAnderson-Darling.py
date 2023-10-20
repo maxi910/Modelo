@@ -68,7 +68,7 @@ df = pd.DataFrame({ticker: np.random.normal(size=100) for ticker in tickers_usua
 
 analizador = AnalizadorDeDatos(df)
 test = TestAndersonDarling(analizador, tickers_usuario)  
-distribuciones = ['norm', 'expon', 'logistic', 'gumbel_l', 'weibull_min', 'gumbel_r']  
+distribuciones = ['norm', 'expon', 'logistic', 'gumbel_l', 'gumbel_r']  
 resultados = test.realizar_test(distribuciones)
 test.imprimir_resultados(resultados)
 
