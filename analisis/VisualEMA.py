@@ -5,7 +5,7 @@ from datos import APITiingo, APIStub
 from Mean import CalculadoraDePromedios
 import matplotlib.pyplot as plt
 
-tickers = ['AAPL', 'META', '']  
+tickers = ['AAPL', 'META']  
 fecha_inicio = datetime(2020, 1, 1)
 fecha_fin = datetime(2023, 10, 17)
 clave_api_tiingo = os.environ.get('TIINGO_API_KEY') 
@@ -14,7 +14,6 @@ datos = api.obtener_datos(tickers, fecha_inicio, fecha_fin)
 #INSTA
 calculadora = CalculadoraDePromedios(datos)
 
-# Obtener la entrada del usuario para el ticker
 print("Tickers disponibles: ", ", ".join(tickers))
 columna = input("Ticker para EMA: ").strip().upper()
 

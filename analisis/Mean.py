@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from scipy.stats import gmean, hmean
-from datos import APITiingo, APIStub  # Comentado porque no tengo el módulo datos
+from datos import APITiingo, APIStub 
 import matplotlib.pyplot as plt
 
 class CalculadoraDePromedios:
