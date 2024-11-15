@@ -15,7 +15,7 @@ def principal():
         print(e)
         return
 
-    tickers = ['ENB', 'AAPL', 'ADBE', 'ALB', 'AMD'] 
+    tickers = [] 
     fecha_fin = datetime.now()
     fecha_inicio = fecha_fin - timedelta(days=5*365)
 
@@ -51,9 +51,8 @@ def principal():
     capital_total = 2500  
     inversiones = {ticker: capital_total * peso for ticker, peso in zip(tickers, resultados[3:,resultados[2].argmax()])}
 
-    # Suponiendo que tienes un diccionario con los betas de cada acción y el retorno esperado del mercado
-    betas = {'ENB': 1.2, 'AAPL': 1.1, 'ADBE': 1.3, 'ALB': 1.0, 'AMD': 1.5}  # Ejemplo, reemplaza con los betas reales
-    retorno_mercado = 0.1  # Ejemplo, reemplaza con el retorno esperado real del mercado
+    betas = {}
+    retorno_mercado = 0.1  #wea x xd
 
     print("Cantidad por acción y CAPM:")
     for ticker, inversion in inversiones.items():
@@ -64,10 +63,8 @@ def principal():
         else:
             print(f"No se encontró el beta para {ticker}.")
 
-    # Obtener el retorno del portafolio para el portafolio con el ratio Sharpe más alto
     mejor_retorno_portafolio = resultados[0, resultados[2].argmax()]
 
-    # Calcular retornos esperados durante 1, 2 y 3 años
     retorno_esperado_1año = calcular_retorno_esperado(mejor_retorno_portafolio, 1)
     retorno_esperado_2años = calcular_retorno_esperado(mejor_retorno_portafolio, 2)
     retorno_esperado_3años = calcular_retorno_esperado(mejor_retorno_portafolio, 3)
