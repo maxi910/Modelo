@@ -11,7 +11,7 @@ class PropositorDeDistribucion:
         f = Fitter(self.datos[columna].dropna())  
         f.fit()
         resumen = f.summary()
-        mejor_distribucion = f.get_best(method = 'sumsquare_error') #metodo
+        mejor_distribucion = f.get_best(method = 'sumsquare_error')
         return mejor_distribucion
 
 propositor = PropositorDeDistribucion(df)  
@@ -22,9 +22,8 @@ mejor_distribucion = propositor.proponer_distribucion('columna')
 
 print("Mejor Distribución Propuesta:", mejor_distribucion)
 
-# Ahora, puedes usar esta distribución propuesta en tu test de Anderson-Darling
 analizador = AnalizadorDeDatos(df)
-test_ad = TestAndersonDarling(analizador, ['columna'])  # Asegúrate de adaptar los parámetros según tus necesidades
-distribuciones = [mejor_distribucion['name']]  # Usando la distribución propuesta
+test_ad = TestAndersonDarling(analizador, ['columna'])
+distribuciones = [mejor_distribucion['name']] 
 resultados = test_ad.realizar_test(distribuciones)
 test_ad.imprimir_resultados(resultados)
