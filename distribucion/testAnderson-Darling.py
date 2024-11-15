@@ -60,7 +60,6 @@ class TestAndersonDarling:
 
         return distribuciones_por_ticker
 
-# Uso del código
 tickers_usuario = input("Ingrese los tickers separados por comas: ").split(",")  
 tickers_usuario = [ticker.strip() for ticker in tickers_usuario]  
 
@@ -72,7 +71,6 @@ distribuciones = ['norm', 'expon', 'logistic', 'gumbel_l', 'gumbel_r']
 resultados = test.realizar_test(distribuciones)
 test.imprimir_resultados(resultados)
 
-# Determinar la distribución que mejor se ajusta a los datos de cada ticker
 distribuciones = test.determinar_distribucion(resultados)
 print("La distribución que mejor se ajusta a los datos de cada ticker es:")
 for ticker, dist in distribuciones.items():
